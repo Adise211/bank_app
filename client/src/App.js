@@ -33,7 +33,7 @@ const App = () => {
             <Grid item xs={12} sm={4}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
-            <Grid item xs={20} sm={4}>
+            <Grid item xs={12} sm={4}>
               <Filters />
             </Grid>
           </Grid>
