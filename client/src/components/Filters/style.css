@@ -1,0 +1,12 @@
+.container {
+  border: 1px white solid;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 250px;
+  width: 350px;
+  position: absolute;
+  left: 65%;
+  bottom: -40vh;
+}
