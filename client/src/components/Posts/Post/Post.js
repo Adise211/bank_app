@@ -13,9 +13,10 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
+
   return (
     <Card className={classes.card}>
-      <CardContent>
+      <CardContent key={post._id}>
         <Typography variant="h6">{post.clientName}</Typography>
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </CardContent>

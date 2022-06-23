@@ -6,3 +6,4 @@ export const LIKE = 'LIKE';
 
 // Adise - changes:
 export const FINDBALANCE = 'FINDBALANCE';
+export const FINDCITY = 'FINDCITY';

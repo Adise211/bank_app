@@ -103,6 +103,7 @@ export const cityFilter = async (req, res) => {
             return item.city
           })
         ) : []
+        // const find = await PostMessage.findAll({ balance: {$range: ['0','30000']} });
         res.status(200).json(filterPost);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -133,7 +134,7 @@ export const cardsFilter = async (req, res) => {
         const postMess = await PostMessage.find();
         const filterPost = postMess?.length ? (
           postMess.filter(item => {
-            return item.numCreditCards > req.body.range1 && item.numCreditCards < req.body.range2
+            return item.numCreditCards == req.body.number
           })
         ) : []
         res.status(200).json(filterPost);

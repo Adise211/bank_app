@@ -13,7 +13,7 @@ export default (posts = [], action) => {
     case DELETE:
       return posts.filter((post) => post._id !== action.payload);
     case FINDBALANCE:
-      return posts.filter((post) => post.balance === 20296);
+      return action.payload;
     default:
       return posts;
   }

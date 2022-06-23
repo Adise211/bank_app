@@ -5,10 +5,10 @@ import { getPosts, getPost, createPost, updatePost, likePost, deletePost, balanc
 const router = express.Router();
 
 router.get('/', getPosts);
-router.get('/upto', balanceFilter);
+router.post('/upto', balanceFilter);
 router.get('/cities', cityFilter);
 router.get('/mortgage', mortgageFilter);
-router.get('/cards', cardsFilter);
+router.post('/cards', cardsFilter);
 router.post('/', createPost);
 router.get('/:id', getPost);
 router.patch('/:id', updatePost);
