@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './style.css';
 import { useDispatch, useSelector} from 'react-redux';
+import { TextField, Button } from '@material-ui/core';
 import { balanceFilter, cityFilter, mortgageFilter, cardsFilter, twoFilters, threeFilters } from '../../actions/filters';
 
 
@@ -14,8 +15,7 @@ const Filters = () => {
   const [ cards, setCards ] = useState(null);
   const [ radioValue, setRadioValue ] = useState('None');
   const [ list, setList ] = useState([]);
-  const [ selected, setSelected ] = useState('');
-  const [ filters, setFilters ] = useState([]);
+  const [ selected] = useState('');
   const posts = useSelector((state) => state.posts);
 
 
@@ -68,11 +68,12 @@ const Filters = () => {
 
   return (
     <div className='container'>
-      <h3>Filters:</h3>
+      <h3>Filters</h3>
         <form>
           <div className='b-balance'>
-            From <input type='number' placeholder='0' name='from' onChange={(e) => setStart(e.target.value)} />
-            Up to <input type='number' placeholder='20,000' name='upto' onChange={(e) => setEnd(e.target.value)} />
+            <p>Balance:</p>
+            <TextField sx={{m:1}} type='number' label='From' color='secondary' variant='filled' size="small" onChange={(e) => setStart(e.target.value)}/>
+            <TextField sx={{m:1}} type='number' label='Up to' color='secondary' variant='filled' size="small" onChange={(e) => setEnd(e.target.value)}/>
           </div>
 
           <div className='c-dropdown-list'>
@@ -81,7 +82,7 @@ const Filters = () => {
               {
                 list
                 ? list.map((item,i) => {
-                  return <p key={i} value={item}>{item}</p>
+                  return <p key={i} value={item} className='cards'>{item}</p>
                 })
                 : []
               }
@@ -100,7 +101,7 @@ const Filters = () => {
 
 
             <div className='m-mortgage'>
-              <p>Mortgage</p>
+              <p>Mortgage:</p>
               <input
                 type='radio'
                 value='None'
@@ -124,10 +125,24 @@ const Filters = () => {
             </div>
 
             <div className='c-credits'>
-              Credit Cards <input type='number' placeholder='0' onChange={(e) => setCards(e.target.value)} />
+              <TextField
+                sx={{m:1}}
+                type='number'
+                label='Credit Cards'
+                color='secondary'
+                variant='filled'
+                size="small"
+                onChange={(e) => setCards(e.target.value)}
+                />
             </div>
 
-          <button type='submit' onClick={handleSubmit}>Click here</button>
+          <Button
+              type='submit'
+              variant="contained"
+              onClick={handleSubmit}
+              color='secondary'>
+              Search
+          </Button>
         </form>
     </div>
   )

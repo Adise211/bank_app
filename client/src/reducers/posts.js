@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FINDBALANCE, FINDCITY, FIND_MORTGAGE,FIND_CARDS, TWO_FILTERS, TWO_FILTERS_2 } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FINDBALANCE, FINDCITY, FIND_MORTGAGE,FIND_CARDS, TWO_FILTERS } from '../constants/actionTypes';
 
 export default (posts = [], action) => {
   switch (action.type) {
