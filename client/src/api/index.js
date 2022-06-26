@@ -27,6 +27,18 @@ export const cardsFilter = (cards) => axios({
   }
 });
 
+export const cityFilter = (cities) => axios({
+  method: 'post',
+  url: `${url}/cities`,
+  data: {
+    city1: cities[0],
+    city2: cities[1],
+    city3: cities[2],
+    city4: cities[3],
+    city5: cities[4]
+
+  }
+});
 
 export const mortgageFilter = (value) => axios({
   method: 'post',
@@ -37,12 +49,24 @@ export const mortgageFilter = (value) => axios({
   }
 });
 
-export const twoFilters = (start,end,radioValue) => axios({
-  method: 'post',
-  url: `${url}/two`,
-  data: {
-    start: start,
-    end: end,
-    mortgage: radioValue
-  }
-});
+export const twoFilters = (start,end,radioValue,cards) => axios({
+    method: 'post',
+    url: `${url}/two`,
+    data: {
+      start: start,
+      end: end,
+      mortgage: radioValue,
+      number: cards
+    }
+  });
+
+export const threeFilters = (start,end,radioValue,cards) => axios({
+      method: 'post',
+      url: `${url}/three`,
+      data: {
+        start: start,
+        end: end,
+        mortgage: radioValue,
+        number: cards
+      }
+    });

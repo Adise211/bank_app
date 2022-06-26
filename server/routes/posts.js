@@ -1,15 +1,16 @@
 import express from 'express';
 
 import { getPosts, getPost, createPost, updatePost, likePost, deletePost } from '../controllers/posts.js';
-import {balanceFilter, cityFilter, mortgageFilter, cardsFilter, twoFilters} from '../controllers/filters.js';
+import {balanceFilter, cityFilter, mortgageFilter, cardsFilter, twoFilters, threeFilters} from '../controllers/filters.js';
 
 const router = express.Router();
 
 router.get('/', getPosts);
 
 router.post('/two', twoFilters);
+router.post('/three', threeFilters);
 router.post('/upto', balanceFilter);
-router.get('/cities', cityFilter);
+router.post('/cities', cityFilter);
 router.post('/mortgage', mortgageFilter);
 router.post('/cards', cardsFilter);
 
