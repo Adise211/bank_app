@@ -9,19 +9,40 @@ export const updatePost = (id, updatedPost) => axios.patch(`${url}/${id}`, updat
 export const deletePost = (id) => axios.delete(`${url}/${id}`);
 export const getCities = () => axios.get(`${url}/cities`);
 
-// export const balanceFilter = (start,end) => axios.patch(`${url}/upto`, {
-//       params: {
-//         start:start,
-//         end:end
-//       }
-//
-// });
-
 export const balanceFilter = (start,end) => axios({
   method: 'post',
   url: `${url}/upto`,
   data: {
     start: start,
     end: end
+  }
+});
+
+export const cardsFilter = (cards) => axios({
+  method: 'post',
+  url: `${url}/cards`,
+  data: {
+    number: cards
+
+  }
+});
+
+
+export const mortgageFilter = (value) => axios({
+  method: 'post',
+  url: `${url}/mortgage`,
+  data: {
+    mortgage: value
+
+  }
+});
+
+export const twoFilters = (start,end,radioValue) => axios({
+  method: 'post',
+  url: `${url}/two`,
+  data: {
+    start: start,
+    end: end,
+    mortgage: radioValue
   }
 });

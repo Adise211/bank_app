@@ -75,74 +75,35 @@ export const likePost = async (req, res) => {
     res.json(updatedPost);
 }
 
-// Adise - changes    ------------------------------------
 
-// Balance filter
-export const balanceFilter = async (req, res) => {
-    try {
-        const postMess = await PostMessage.find();
-        const filterPost = postMess?.length ? (
-          postMess.filter(item => {
-            return item.balance > req.body.start && item.balance < req.body.end
-          })
-        ) : []
-        // const find = await PostMessage.findAll({ balance: {$range: ['0','30000']} });
-        res.status(200).json(filterPost);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
-
-// Cities filter
-export const cityFilter = async (req, res) => {
-    try {
-        const postMess = await PostMessage.find();
-        const filterPost = postMess? (
-          postMess.map(item => {
-            return item.city
-          })
-        ) : []
-        // const find = await PostMessage.findAll({ balance: {$range: ['0','30000']} });
-        res.status(200).json(filterPost);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
-
-// Mortgage filter :
-export const mortgageFilter = async (req, res) => {
-    try {
-        const postMess = await PostMessage.find();
-        const filterPost = postMess?.length ? (
-          postMess.filter(item => {
-            return item.haveMortgage == req.body.mortgage // "Yes"/"No"
-          })
-        ) : []
-        res.status(200).json(filterPost);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
-
-
-// Credits cards filter
-export const cardsFilter = async (req, res) => {
-    try {
-        const postMess = await PostMessage.find();
-        const filterPost = postMess?.length ? (
-          postMess.filter(item => {
-            return item.numCreditCards == req.body.number
-          })
-        ) : []
-        res.status(200).json(filterPost);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
 
 
 
 export default router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const balanceFilter = async (req, res) => {
+//     try {
+//         const postMess = await PostMessage.find();
+//         const filterPost = postMess?.length ? (
+//           postMess.filter(item => {
+//             return item.balance > req.body.start && item.balance < req.body.end
+//           })
+//         ) : []
+//         // const find = await PostMessage.findAll({ balance: {$range: ['0','30000']} });
+//         res.status(200).json(filterPost);
+//     } catch (error) {
+//         res.status(404).json({ message: error.message });
+//     }
+// }

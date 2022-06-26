@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const postSchema = mongoose.Schema({
     clientName: String,
     city: String,
-    balance: String,
+    balance: Number,
     haveMortgage: String,
     numCreditCards: Number,
     selectedFile: String,

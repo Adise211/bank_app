@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FINDBALANCE, FINDCITY } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
@@ -50,24 +50,3 @@ export const deletePost = (id) => async (dispatch) => {
     console.log(error.message);
   }
 };
-
-// Adise - changes:
-export const balanceFilter = (start,end) => async (dispatch) => {
-  try {
-    
-    const result = await api.balanceFilter(start,end); // I am sending this (from and up to)
-    dispatch({ type: FINDBALANCE, payload: result.data }); // I am getting the result.data
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-export const getCities = () => async (dispatch) => {
-  try {
-    const { result } = await api.getCities();
-
-    dispatch({ type: FINDCITY, payload: result });
-  } catch (e) {
-    console.log(e);
-  }
-}
