@@ -14,7 +14,7 @@ export const balanceFilter = (start,end) => async (dispatch) => {
 
 
 export const cityFilter = (cities) => async (dispatch) => {
-  console.log('jjjjjj',cities);
+
   try {
     const { data } = await api.cityFilter(cities);
     dispatch({ type: FINDCITY, payload: data });
@@ -51,7 +51,7 @@ export const twoFilters = (start,end,radioValue,cards) => async (dispatch) => {
   try {
     const {data} = await api.twoFilters(start,end,radioValue,cards);
     dispatch({ type: TWO_FILTERS, payload: data });
-    console.log("two filters from actions",data);
+
   } catch (e) {
     console.log(e);
   }
@@ -61,7 +61,7 @@ export const threeFilters = (start,end,radioValue,cards) => async (dispatch) => 
   try {
     const {data} = await api.threeFilters(start,end,radioValue,cards);
     dispatch({ type: TWO_FILTERS, payload: data });
-    console.log("two filters from actions",data);
+    
   } catch (e) {
     console.log(e);
   }
